@@ -2114,9 +2114,6 @@ static int dwc3_msm_resume(struct dwc3_msm *mdwc)
 		dev_dbg(mdwc->dev, "%s: Already resumed\n", __func__);
 		return 0;
 	}
-
-	pm_stay_awake(mdwc->dev);
-
 	if (mdwc->bus_perf_client) {
 		mdwc->bus_vote = 1;
 		queue_work(system_nrt_wq, &mdwc->bus_vote_w);
